@@ -26,20 +26,28 @@ class Employee:
         conn.commit()
         print(data)
 
+    def deleteById(self, id):
+        conn.execute('''DELETE FROM employees WHERE id = ?''', [(id)])
+        conn.commit()
+        print(f'Delete employee {id}')
+
 
 emp = Employee()
 
 if len(sys.argv) > 1:
     key = sys.argv[1]
 else:
-    key = input('Please inter key from add, all: ')
+    key = input('Please inter key from add, all, del, get: ')
 
 if key=='all':
+    print('List all employee:')
     emp.all()
 elif key=='get':
+    print('Get employee by id:')
     id = int(input('Enter id employee: '))
     emp.getById(id)
 elif key=='update':
+    print('Update employee:')
     name = input('Enter name: ')
     salary = input('Enter salary: ')
     departament = input('Enter departament: ')
@@ -47,6 +55,10 @@ elif key=='update':
     hireDate = input('Enter hireDate: ')
     id = int(input('Enter id employee: '))
     emp.update((name, salary, departament, position, hireDate, id))
+elif key=='del':
+    print('Delete employee by id:')
+    id = int(input('Enter id employee: '))
+    emp.deleteById(id)
 else:
     print('Add employee:')
     name = input('Enter name: ')
