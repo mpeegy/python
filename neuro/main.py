@@ -59,3 +59,5 @@ if __name__ == "__main__":
     # Тестируем нейрон на новом примере.
     print ("Considering new situation [1, 0, 0] -> ?: ")
     print (neural_network.think(array([1, 0, 0])))
+
+    input()
