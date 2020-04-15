@@ -1,3 +1,3 @@
 # python and ipython
 
-os, sys, subprocess, numpy.
+os, sys, subprocess, numpy, matplotlib.
